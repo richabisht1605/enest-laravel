@@ -15,7 +15,7 @@
 				<div class="dish-info">
 					<div class="machine-pic">
 						<div class="img">
-							<img src="{{ asset($product->product_image) }}" >
+							<img src="{{asset($product->product_image) }}" >
 						</div>
 						<div class="stock">
 							<p>In Stock: {{$product->pstock}}</p>
