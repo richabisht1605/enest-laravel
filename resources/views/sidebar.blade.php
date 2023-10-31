@@ -1,10 +1,9 @@
-<!--main div starts here-->
+{{--main div starts here--}}
 <div class="categorious">
-    <!--cate div starts here-->
+  {{--cate div starts here--}}
     <div class="cate-heading">
         <p>CATEGORIES</p>
     </div>
-    <!--item div starts here-->
     <div class="items">
         <ul>
             @foreach ($allCategories as $r)
@@ -12,5 +11,4 @@
             @endforeach
         </ul>
     </div>
-     <!--item div ends here-->
 </div>

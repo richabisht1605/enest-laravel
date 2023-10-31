@@ -1,16 +1,14 @@
-<!--Calling to main file in layouts-->
 @extends('layouts.main')
-<!--Calling  login  in main file-->
 @section('login')
-	<!--footer div goes here-->
 	<div class="footer">
-		<!--login div goes here-->
 		<div class="login-here">
 			<div class="login">
 				<p>Login Here</p>
 				<div  class="user-info">
+					{{--form goes here--}}
 					<form method="post" action="{{Route('login.data')}}">
 						{{ csrf_field() }}
+						{{--table goes here--}}
 						<table class="login-1">
 							<tr class="inpt">
 								<td><span>Username</span></td>
@@ -25,22 +23,18 @@
 								<td><input class="log" type="submit" name="save" value="Login"/></td>
 							</tr>
 						</table>
-						<!--table  ends here-->
+						{{--table  ends here--}}
 					</form>
-					<!--form div goes here-->
+					{{--form div goes here--}}
 				</div>
 			</div>
 		</div>
-		<!--login div ends here-->
 	</div>
-	<!--signup div goes here-->
+	{{--signup div goes here--}}
 	<div class="sign-up">
-		<!--sign div goes here-->
 		<div class="sign">
 			<p>New to Enest? <a href=""> Sign up</a></p>
-			<!--  user info  here-->
 			<div  class="user-info">
-				<!--form starts  here-->
 				<form method="post" action="{{Route('signup.data')}}">
 					{{ csrf_field() }}
 					<!--table starts  here-->
@@ -64,12 +58,9 @@
 					</table>
 					<!--table ends here-->
 				</form>
-				<!--table ends here-->
+				<!--form ends here-->
 			</div>
-			<!--user info div  ends here-->
 		</div>
-		<!--sign div  ends here-->
 	</div>
-	<!--sign-up ends here-->
+	{{--end section--}}
 @endsection
-<!--end section-->

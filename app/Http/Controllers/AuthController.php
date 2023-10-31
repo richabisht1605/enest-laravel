@@ -10,26 +10,34 @@ use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
-    public function postLogin(Request $request){
+    //funtion for Login(including validations) 
+    public function postLogin(Request $request)
+    {
         $request->validate([
-            'fullname' => 'required',
-            'password' => 'required|min:6',
+            'fullname' => 'required', 
+            'password' => 'required|min:6', 
+
         ]);
+
         $credentials = $request->only('fullname', 'password');
         if (Auth::guard('signup')->attempt($credentials)) {
             return redirect()->intended('/')
-                        ->withSuccess('You have Successfully loggedin');
+                             ->withSuccess('You have Successfully loggedin');
         }
+
         return redirect("login")->withSuccess('Oppes! You have entered invalid credentials');
     }
 
-    public function postRegistration(Request $request){
+    //
+    public function postRegistration(Request $request)
+    {
         $request->validate([
             'name' => 'required',
             'email' => 'required|email|unique:signup',
             'password' => 'required|min:6',
         ]);
 
+        // to signup or register new user
         $register=new Login;
         if($request->isMethod('post')){
             $register->fullname=$request->get('name');
@@ -37,13 +45,16 @@ class AuthController extends Controller
             $register->password=Hash::make($request->get('password'));
             $register->save();
         }
+
         return redirect('/')->withSuccess('Great! You have Successfully loggedin');
     }
 
+    //Function to logout user
     public function logout() {
         Session::flush();
         Auth::logout();
   
         return Redirect('login');
     }
+
 }

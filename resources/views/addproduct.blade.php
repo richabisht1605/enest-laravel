@@ -1,6 +1,4 @@
-<!--Calling to main file in layouts-->
 @extends('layouts.main')
-<!--Calling  addproduct  from main file-->
 @section('addproduct')
 {{--if goes here--}}
 	@if(session('success'))
@@ -12,11 +10,9 @@
 	<div class="footer">
 		{{--including side-bar  here--}}
 		@include('sidebar')
-		{{--contact div  goes here--}}
 		<div class="contact">
 			{{-- loop  goes here--}}
 			@foreach ($products as $product)
-			{{--small divs of image detail stock etc goes here--}}
 				<div class="contact-us">
 					<p>{{$product->pname}}</p>	
 				</div>
@@ -64,10 +60,8 @@
 						</div>
 					</div> 
 				</div>
-				{{--small divs of image detail stock etc ends here--}}
 			@endforeach
 			{{--loop ends here--}}
-			{{--dish info goes here--}}
 			<div class="info">
 				{{--form goes here--}}
 				<form>
@@ -99,9 +93,7 @@
 				</form>
 				{{--form ends here--}}
 			</div>
-			{{--dish info ends here--}}
 		</div>
-		{{--contact div  ends here--}}
 	</div>
-	{{--footer div  ends here--}}
+	{{--Section ends here--}}
 @endsection						
